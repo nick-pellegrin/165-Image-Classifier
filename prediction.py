@@ -30,7 +30,7 @@ Outputs:
     
 if __name__ == "__main__":
 
-    model = keras.models.load_model('model_2') 
+    model = keras.models.load_model('model') 
 
     # test_ds = keras.preprocessing.image_dataset_from_directory(
     #     "hw4_test/hw4_test",
@@ -72,15 +72,17 @@ if __name__ == "__main__":
         # image = tf.cast(img/255. ,tf.float32)
     with open('prediction.txt', 'w') as f:
         for i in range(10000):
-            filename = "hw4_test/hw4_test/{}.png".format(i)
-            img = keras.preprocessing.image.load_img(
-            filename,
-            color_mode = "rgb",
-            target_size=(168,168)
+            image = keras.preprocessing.image.load_img(
+                "hw4_test/hw4_test/{}.png".format(i),
+                color_mode = "grayscale",
+                target_size=(28, 28)
             )
             #img = keras.preprocessing.image.img_to_array(img, data_format=None, dtype=None)
-            img = tf.expand_dims(img, 0)
-            prediction = np.argmax(model.predict(img), axis=-1)
+            input_arr = tf.keras.preprocessing.image.img_to_array(image)
+            input_arr = np.array([input_arr])  # Convert single image to a batch.
+
+            #img = tf.expand_dims(img, 0)
+            prediction = np.argmax(model.predict(input_arr), axis=-1)
         
             f.write(str(prediction[0]))
             f.write('\n')

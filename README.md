@@ -1,5 +1,6 @@
 # 165-Image-Classifier
 This project uses the F-MNIST dataset to train a image recognition model. Similar to recognizing handwritten digits as in the MNIST dataset, the F-MNIST dataset uses pictures of different articles of clothing (such as pants, shirt, etc).  
+![](https://github.com/nick-pellegrin/165-Image-Classifier/blob/main/f-mnist.png)
 * Model.py was used to create and train the model.  
 * Prediction.py was used to load the model and create the predictions file for submission and grading on kaggle.  
 

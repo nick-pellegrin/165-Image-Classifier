@@ -1,8 +1,8 @@
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
-import matplotlib.pyplot as plt
-import os
+# import matplotlib.pyplot as plt
+# import os
 
 """
 Inputs:
@@ -30,7 +30,7 @@ Outputs:
     
 if __name__ == "__main__":
 
-    model = keras.models.load_model('model') 
+    model = keras.models.load_model('model_9218') 
 
     # test_ds = keras.preprocessing.image_dataset_from_directory(
     #     "hw4_test/hw4_test",
